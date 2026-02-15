@@ -6,7 +6,6 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<link rel="stylesheet" href="style.css">
 	<title>Akiss~~</title>
 </svelte:head>
 

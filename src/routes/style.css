@@ -71,7 +71,7 @@ body{
     width: 120%;
     height: 120%;
 
-    background-image: url("src/lib/assets/background-overlays/pixel-grain.svg");
+    background-image: url("/background-overlays/pixel-grain.svg");
     background-repeat: no-repeat;
     pointer-events: none;
 
