@@ -18,7 +18,24 @@
         </div>
     </div>
     <div id="nav">
+        <div id="akiss-logo">
+            <img src="vectors/akiss-rocks-logo.svg" alt="" srcset="">
+        </div>
+        <div id="nav-menu-ctn1">
 
+        </div>
+        <div id="nav-menu-ctn2">
+
+        </div>
+        <div id="nav-menu-ctn3">
+
+        </div>
+        <div id="nav-menu-ctn4">
+
+        </div>
+        <div id="kessoku-logo">
+            <img src="vectors/kessoku-band-logo.svg" alt="" srcset="">
+        </div>
     </div>
     <div id="recent-project-ctn">
 

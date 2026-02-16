@@ -6,21 +6,22 @@
 
 body{
     background-color: var(--primary-bg-color);
+    margin: 0;
 }
 
 #main-ctn{
     display: flex;
     flex-direction: column;
-    margin: 100px;
-    margin-top: 60px;
 }
 
 #header{
+
+    margin: 100px;
+    margin-top: 60px;
     display: flex;
     z-index: 0;
     #name-ctn{
         flex-direction: column;
-
         #name-sub-ctn{
             display: flex;
             gap: 20px;
@@ -42,21 +43,17 @@ body{
             font-size: 18pt;
             color: var(--accent-color);
         }
-
         .l-logo{
             position: relative;
             top: 5px;
             left: 20px;
-
             img{
                 scale: 0.8;
             }
         }
-
         #linkedin-logo{
             margin-left: 20px;
         }
-
     }
 }
 
@@ -67,7 +64,6 @@ body{
     bottom:0;
 
     z-index: -1;
-
     width: 120%;
     height: 120%;
 
@@ -76,4 +72,17 @@ body{
     pointer-events: none;
 
     opacity: 0.80;
+}
+
+#nav{
+    background-color: var(--accent-color);
+    padding: 30px 50px;
+    margin-top: 50px;
+
+    display: flex;
+
+    #kessoku-logo{
+        align-self: flex-end;
+        justify-self: flex-end;
+    }
 }
