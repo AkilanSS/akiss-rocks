@@ -1,4 +1,83 @@
 @import url(https://db.onlinewebfonts.com/c/74a4858c84d2494f93a076ceb57f3499?family=Foulis+Greek);
+
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-Heavy.otf");
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-HeavyItalic.otf");
+    font-weight: 900;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-Bold.otf");
+    font-weight: 800;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-BoldItalic.otf");
+    font-weight: 800;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-Semibold.otf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-SemiboldItalic.otf");
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-Medium.otf");
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-MediumItalic.otf");
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-Book.otf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-BookItalic.otf");
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-Light.otf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-LightItalic.otf");
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-Thin.otf");
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url("/fonts/CooperHewitt-OTF-public/CooperHewitt-ThinItalic.otf");
+    font-weight: 300;
+    font-style: italic;
+}
+
 :root{
     --primary-bg-color: #FEFEEB;
     --accent-color: #FE6596;
@@ -7,17 +86,18 @@
 body{
     background-color: var(--primary-bg-color);
     margin: 0;
+    overflow-x: hidden;
 }
 
 #main-ctn{
     display: flex;
     flex-direction: column;
+    
 }
 
 #header{
-
-    margin: 100px;
-    margin-top: 60px;
+    padding: 6rem;
+    padding-top: 60px;
     display: flex;
     z-index: 0;
     #name-ctn{
@@ -34,6 +114,7 @@ body{
             img{
                 position: relative;
                 top: -25px;
+                left: 25px;
                 scale: 1.1;
             }
         }
@@ -71,6 +152,8 @@ body{
     background-repeat: no-repeat;
     pointer-events: none;
 
+    
+
     opacity: 0.80;
 }
 
@@ -78,11 +161,25 @@ body{
     background-color: var(--accent-color);
     padding: 30px 50px;
     margin-top: 50px;
+    z-index: 1;
 
     display: flex;
+    gap: 80px;
 
     #kessoku-logo{
         align-self: flex-end;
         justify-self: flex-end;
+        mix-blend-mode: plus-lighter;
+    }
+    #nav-menu-wrap{
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        font-family: 'Cooper Hewitt';
+        font-weight: 900;
+        color: white;
+        font-size: 20px;
+
     }
 }

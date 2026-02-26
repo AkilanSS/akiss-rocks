@@ -21,18 +21,13 @@
         <div id="akiss-logo">
             <img src="vectors/akiss-rocks-logo.svg" alt="" srcset="">
         </div>
-        <div id="nav-menu-ctn1">
-
+        <div id="nav-menu-wrap">
+            <div class="nav-menu-ctn" id="nav1"><span id="text-nav1">BLOG</span></div>
+            <div class="nav-menu-ctn" id="nav2"><span id="text-nav1">PROJECTS</span></div>
+            <div class="nav-menu-ctn" id="nav3"><span id="text-nav1">SANDBOX</span></div>
+            <div class="nav-menu-ctn" id="nav4"><span id="text-nav1">ALGORITHMS</span></div>
         </div>
-        <div id="nav-menu-ctn2">
-
-        </div>
-        <div id="nav-menu-ctn3">
-
-        </div>
-        <div id="nav-menu-ctn4">
-
-        </div>
+        <div style="margin-left: auto;"></div> <!--For pushing the logo to the rigght-->
         <div id="kessoku-logo">
             <img src="vectors/kessoku-band-logo.svg" alt="" srcset="">
         </div>
