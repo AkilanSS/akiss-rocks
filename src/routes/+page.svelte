@@ -33,10 +33,44 @@
         </div>
     </div>
     <div id="recent-project-ctn">
+        <span class="ctn-head">Recent Projects</span>
+        <div id="project-ctn-wrap">
+            <div class="project-ctn" id="project-id-1">
+                <span id="project-name">
+                    STEADY STATE VISUALLY EVOKED POTENTIALS
+                </span>
+                <div id="project-info-ctn" style="display:none">
 
+                </div>
+            </div>
+            <div class="project-ctn" id="project-id-2">
+                <span id="project-name">
+                    SHELLY - SSH OVER HTTPS
+                </span>
+                <div id="project-info-ctn" style="display:none">
+
+                </div>
+            </div>
+            <div class="project-ctn" id="project-id-2">
+                <span id="project-name">
+                    HODGKIN-HUXLEY NEURONAL MODELLING
+                </span>
+                <div id="project-info-ctn" style="display:none">
+
+                </div>
+            </div>
+            <div class="project-ctn" id="project-id-2">
+                <span id="project-name">
+                    GIVESYNC
+                </span>
+                <div id="project-info-ctn" style="display:none">
+
+                </div>
+            </div>
+        </div>
     </div>
     <div id="recent-post-ctn" class="light-ctn">
-
+        
     </div>
     <div class="light-ctn" id="spotlight-ctn">
 
