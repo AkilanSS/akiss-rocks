@@ -70,7 +70,37 @@
         </div>
     </div>
     <div id="recent-post-ctn" class="light-ctn">
-        
+        <span id="recent-post-head">Recent Posts</span>
+        <div id="all-post-ctn">
+            <div class="post-ctn" id="post-ctn-1">
+                <div class="post-img">
+                    <div class="date"></div>
+                    <!--Image should go herre-->
+                </div>
+                <div class="post-title">Defining the Eigen Value Problem</div>
+            </div>
+            <div class="post-ctn" id="post-ctn-1">
+                <div class="post-img">
+                    <div class="date"></div>
+                    <!--Image should go herre-->
+                </div>
+                <div class="post-title">Defining the Eigen Value Problem</div>
+            </div>
+            <div class="post-ctn" id="post-ctn-1">
+                <div class="post-img">
+                    <div class="date"></div>
+                    <!--Image should go herre-->
+                </div>
+                <div class="post-title">Defining the Eigen Value Problem</div>
+            </div>
+            <div class="post-ctn" id="post-ctn-1">
+                <div class="post-img">
+                    <div class="date"></div>
+                    <!--Image should go herre-->
+                </div>
+                <div class="post-title">Defining the Eigen Value Problem</div>
+            </div>
+        </div>
     </div>
     <div class="light-ctn" id="spotlight-ctn">
 
