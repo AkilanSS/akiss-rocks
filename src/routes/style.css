@@ -276,7 +276,7 @@ body{
         }
 
         #header::before{
-            background-size: 100%;
+            background-size: 120%;
             top: 0px;
             right: 0px;
         }
@@ -334,20 +334,20 @@ body{
 
     display: flex;
     flex-direction: column;
-    gap: 1.3em;
+    gap: 1em;
 
     #project-ctn-wrap{
         display: flex;
         flex-direction: column;
-        margin-bottom: -10px;
+        
 
         .project-ctn{
-            padding: 0.5em 1em;
-            border: #FFFFFF 1px solid;
+            padding: 0.3em 0.8em;
+            border: #FFFFFF 0.01em solid;
 
             #project-name{
                 font-weight: 500;
-                font-size: 0.7em;
+                font-size: 0.6em;
             }
         }
 
