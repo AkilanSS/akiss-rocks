@@ -103,7 +103,22 @@
         </div>
     </div>
     <div class="light-ctn" id="spotlight-ctn">
+        <span id="light-head">Spotlight of the Moment</span>
+        <div id="light-sub-ctn">
+            <div id="light-txt-ctn">
+                <span id="light-txt-head">
+                    Non Linear Recurrent Networks for State Transition under Diffeomorphic Topological Space through Riemannian Lie Algebraic Rings
+                </span>
+                <span id="light-txt-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi. In eros mauris, elementum nec auctor vel, imperdiet et mi. Morbi dignissim maximus nunc, eu lobortis justo pulvinar at.                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi. In eros mauris, elementum nec auctor vel, imperdiet et mi. Morbi dignissim maximus nunc, eu lobortis justo pulvinar at.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi. In eros mauris, elementum nec auctor vel, imperdiet et mi. Morbi dignissim maximus nunc, eu lobortis justo pulvinar at.
 
+                </span>
+            </div>
+            <div id="img-ctn">
+
+            </div>
+        </div>
     </div>
     <div id="gallery-ctn" class="light-ctn">
 
