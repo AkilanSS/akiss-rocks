@@ -120,11 +120,22 @@
             </div>
         </div>
     </div>
-    <div id="gallery-ctn" class="light-ctn">
+    <!-- <div id="gallery-ctn" class="light-ctn">
 
-    </div>
+    </div> -->
     <div id="footer">
-
+        <div id="footer-wrap">
+        <span id="kural-tamil-text">
+            “இடுக்கண் வருங்கால் நகுக அதனை <br>
+            அடுத்தூர்வது அஃதொப்ப தில்.”
+        </span> 
+        <span id="kural-eng-text">
+            “Laugh at misfortune. There is nothing so able, To triumph over it.”
+        </span>
+        <span id="kural-num">
+            திருக்குறள் - ௬௱௨௰௧
+        </span>
+        </div>
     </div>
 </div>
 
