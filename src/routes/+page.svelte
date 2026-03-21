@@ -1,5 +1,51 @@
 <script lang="ts">
 
+    import { gsap } from "gsap";
+    import { onMount } from "svelte";
+
+    import { SplitText } from "gsap/SplitText";
+    import { TextPlugin } from "gsap/TextPlugin";
+
+    gsap.registerPlugin(SplitText,TextPlugin);
+    
+    let tl = gsap.timeline();
+
+    onMount(() => {
+        let split = SplitText.create("#name",{
+            type: "chars",
+            mask: "words"
+        })
+
+        tl.from(split.chars, {
+            opacity: 0,
+            x: 10,
+            stagger: 0.1,
+            duration: 0.5
+        })
+
+        tl.from("#bio-line", {
+            delay: 0.5,
+            opacity: 0,
+            y: 10,
+            duration: 0.5
+        }, "<")
+
+        tl.from(".l-logo", {
+            opacity: 0
+        }, "+=0")
+
+        tl.from("#flower", {
+            opacity: 0
+        }, "<")
+
+        tl.to("#flower",{
+            rotation: 360,
+            repeat: -1,
+            duration: 5,
+            ease: "expo"
+        }, "<");
+    }); 
+
 </script>
 
 <div id="main-ctn">
@@ -7,7 +53,7 @@
         <div id="name-ctn">
             <div id="name-sub-ctn">
                 <span id="name">Akilan</span>
-                <img src="vectors/flower-big.svg" alt="">
+                <img id="flower" src="vectors/flower-big.svg" alt="">
             </div>
             <span id="bio-line">I do cool stuff, occasionally</span>
             <a class="l-logo" href="http://github.com/AkilanSS/" target="_blank"><img src="vectors/github.svg" alt=""></a>
@@ -112,7 +158,6 @@
                 <span id="light-txt-desc">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi. In eros mauris, elementum nec auctor vel, imperdiet et mi. Morbi dignissim maximus nunc, eu lobortis justo pulvinar at.                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi. In eros mauris, elementum nec auctor vel, imperdiet et mi. Morbi dignissim maximus nunc, eu lobortis justo pulvinar at.
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi. In eros mauris, elementum nec auctor vel, imperdiet et mi. Morbi dignissim maximus nunc, eu lobortis justo pulvinar at.
-
                 </span>
             </div>
             <div id="img-ctn">
