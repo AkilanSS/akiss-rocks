@@ -3,8 +3,8 @@
     import gsap from "gsap";
     import { onMount } from "svelte";
 
-    import SplitText from "gsap/dist/SplitText";
-    import TextPlugin from "gsap/dist/TextPlugin";
+    import SplitText from "gsap/SplitText";
+    import TextPlugin from "gsap/TextPlugin";
 
     gsap.registerPlugin(SplitText,TextPlugin);
     
