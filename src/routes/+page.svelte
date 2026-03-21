@@ -3,14 +3,28 @@
     import { gsap } from 'gsap';
     import { SplitText } from 'gsap/SplitText';
     import { TextPlugin } from 'gsap/TextPlugin';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
     import { onMount } from 'svelte';
+    import Lenis from 'lenis';
+    import 'lenis/dist/lenis.css'; 
+
 
     let tl = gsap.timeline();
 
     onMount(() => {
-        gsap.registerPlugin(SplitText,TextPlugin);
+        const lenis = new Lenis({
+            wheelMultiplier: 0.5,
+            lerp: 0.2
+        });
 
+        function raf(time: number) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        gsap.registerPlugin(SplitText,TextPlugin, ScrollTrigger);
         let split = SplitText.create("#name",{
             type: "chars",
             mask: "words"
@@ -44,6 +58,23 @@
             duration: 5,
             ease: "expo"
         }, "<");
+
+        lenis.on('scroll', ScrollTrigger.update);
+
+        // gsap.to("#rest-wrap", {
+        //     yPercent: -15,
+        //     ease: "none",
+        //     scrollTrigger : {
+        //         trigger: "#header",
+        //         start: "top top",
+        //         end: 'bottom top',
+        //         scrub: true
+        //     }
+        // })
+
+        return () => {
+            lenis.destroy();
+        };
     }); 
 
 </script>
@@ -63,7 +94,8 @@
 
         </div>
     </div>
-    <div id="nav">
+    <div id="rest-wrap">
+        <div id="nav">
         <div id="akiss-logo">
             <img src="vectors/akiss-rocks-logo.svg" alt="" srcset="">
         </div>
@@ -181,6 +213,7 @@
             திருக்குறள் - ௬௱௨௰௧
         </span>
         </div>
+    </div>
     </div>
 </div>
 
