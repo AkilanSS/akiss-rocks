@@ -10,6 +10,7 @@
     import 'lenis/dist/lenis.css'; 
 
 
+
     let tl = gsap.timeline();
 
     onMount(() => {
@@ -77,6 +78,59 @@
         };
     }); 
 
+    function handleHover(node: any){
+        let text = node.children[0];
+        let text_id = parseInt(node.id.slice(-1)) - 1;
+        let split_char = SplitText.create(text, {
+            type: "chars, words",
+            mask: "lines"
+        })
+
+        let word_to_anim = split_char.words;
+        let color = ["#E70047", "#87DADE", "#FDED74", "#016EBF"]
+        let animation : gsap.core.Tween;
+
+        const onEnter = () => {
+            let char_to_change = split_char.chars[Math.floor(Math.random() * (split_char.chars.length))]
+            animation = gsap.to(char_to_change, {
+                duration: 0.5,    
+                color: color[text_id],
+                rotation: 360
+            })
+
+            animation = gsap.to(word_to_anim, {
+                scale: 1.3,
+                ease: "expo"
+            })
+        }
+
+        const onLeave = () => {
+            if (animation) animation.reverse();
+        }
+
+        node.addEventListener('mouseenter', onEnter);
+        node.addEventListener('mouseleave', onLeave);
+    }
+
+    function animateHairpin(node: any){
+        const hairpin_img = node.children[1];
+        let animation : gsap.core.Tween;
+        const onEnter = () => {
+            animation = gsap.to(hairpin_img, {
+                rotation: 360,
+                ease: 'power4.inOut',
+                duration: 1 
+            })  
+        }
+
+        const onLeave = () => {
+            if (animation) animation.reverse();
+        }
+
+        node.addEventListener('mouseenter', onEnter);
+        node.addEventListener('mouseleave', onLeave);
+    }
+
 </script>
 
 <div id="main-ctn">
@@ -96,14 +150,15 @@
     </div>
     <div id="rest-wrap">
         <div id="nav">
-        <div id="akiss-logo">
-            <img src="vectors/akiss-rocks-logo.svg" alt="" srcset="">
+        <div use:animateHairpin id="akiss-logo" style="margin-right: -40px;">
+            <img src="vectors/akiss-rocks-logo-without-hairpin.svg" alt="" srcset="">
+            <img src="vectors/hairpin.svg" alt="" srcset="" style="position:relative;left:-41px; top:0px;">
         </div>
         <div id="nav-menu-wrap">
-            <div class="nav-menu-ctn" id="nav1"><span id="text-nav1">BLOG</span></div>
-            <div class="nav-menu-ctn" id="nav2"><span id="text-nav1">PROJECTS</span></div>
-            <div class="nav-menu-ctn" id="nav3"><span id="text-nav1">SANDBOX</span></div>
-            <div class="nav-menu-ctn" id="nav4"><span id="text-nav1">ALGORITHMS</span></div>
+            <a href="" use:handleHover class="nav-menu-ctn" id="nav1"><span id="text-nav1">BLOG</span></a>
+            <a href="" use:handleHover class="nav-menu-ctn" id="nav2"><span id="text-nav2">PROJECTS</span></a>
+            <a href="" use:handleHover class="nav-menu-ctn" id="nav3"><span id="text-nav3">SANDBOX</span></a>
+            <a href="" use:handleHover class="nav-menu-ctn" id="nav4"><span id="text-nav4">ALGORITHMS</span></a>
         </div>
         <div style="margin-left: auto;"></div> <!--For pushing the logo to the rigght-->
         <div id="kessoku-logo">
