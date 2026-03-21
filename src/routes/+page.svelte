@@ -60,6 +60,38 @@
             ease: "expo"
         }, "<");
 
+        tl.from("#status-ctn", {
+            opacity: 0,
+            ease: "back"
+        }, "<")
+
+        tl.from("#status-flower", {
+            rotate: 360,
+            repeat: -1,
+            duration: 10,
+            ease: "none"
+        })
+
+        let ann_split = SplitText.create("#recent-ann", {
+            type: "chars"
+        })
+
+        gsap.fromTo(ann_split.chars, {
+            stagger: 0.2,
+            y: 2,
+            repeat: -1,
+            yoyo: true,
+            ease:  "power1.inOut"
+        }, {
+            stagger: 0.2,
+            y: -2,
+            repeat: -1,
+            yoyo: true,
+            ease:  "power1.inOut"
+        }, 
+    )
+
+
         lenis.on('scroll', ScrollTrigger.update);
 
         // gsap.to("#rest-wrap", {
@@ -145,7 +177,24 @@
             <a class="l-logo" id="linkedin-logo" href="http://linkedin.com/in/akilanss" target="_blank"><img src="/vectors/linkedin.svg" alt=""></a>
         </div>
         <div id="status-ctn">
-
+            <img src="vectors/flower-small.svg" id="status-flower" alt="" srcset="">
+            <span id="status-ctn-head">
+                What's on Akilan's mind lately?
+            </span>
+            <div id="ann-ctn">
+                <span class="ann">
+                    <span class="ann-type type-blog"><span id="recent-ann">[NEW]</span>[BLOG]</span> 
+                    <span class="ann-text">Is big chungus real?</span>
+                </span>
+                <span class="ann">
+                    <span class="ann-type type-blog">[BLOG]</span>
+                    <span class="ann-text">A guide on being pretty</span>
+                </span>
+                <span class="ann">
+                    <span class="ann-type type-musings">[MUSINGS]</span>
+                    <span class="ann-text">இனியவை கூறல்</span>
+                </span>
+            </div>
         </div>
     </div>
     <div id="rest-wrap">

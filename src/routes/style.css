@@ -104,6 +104,7 @@ body{
     padding: 6rem;
     padding-top: 60px;
     display: flex;
+    justify-content: space-between;
     z-index: 0;
 
     position: relative;
@@ -169,6 +170,78 @@ body{
 
     opacity: 0.80;
 }
+
+#status-ctn{
+    background-color: #FFFFFF;
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    rotate: -15deg;
+    position: relative;
+    top: 60px;
+
+    max-height: fit-content;
+    width: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img{
+        position: absolute;
+        right: -50px;
+        top: -50px
+    }
+
+    #status-ctn-head{
+        font-family: 'Cooper Hewitt';
+        font-weight: 600;
+        color: var(--accent-color);
+        padding: 20px 60px;
+    }
+
+    #recent-ann{
+        color: #F2A159;
+        margin-right: 10px;
+    }
+
+    #ann-ctn{
+        border-top: 1px solid var(--accent-color);
+        padding: 20px 100px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 15px;
+        row-gap: 5px;
+    }
+
+    .ann{
+        font-family: 'Cooper Hewitt';
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--accent-color);
+
+        display: contents;
+    }
+
+    .ann-type{
+        font-weight: 600;
+        white-space: nowrap;
+        justify-self: end;
+    }
+
+    .ann-text{
+
+    }
+    
+    .type-blog{
+        color: #016EBF;
+    }
+
+    .type-musings{
+        color: #E70047;
+    }
+    
+}
+
 
 #nav{
     background-color: var(--accent-color);
