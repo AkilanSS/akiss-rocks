@@ -107,6 +107,8 @@ body{
     justify-content: space-between;
     z-index: 0;
 
+    height: 32vh;
+
     position: relative;
     overflow: hidden;
 
@@ -246,7 +248,7 @@ body{
 #nav{
     background-color: var(--accent-color);
     padding: 30px 50px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     z-index: 1;
 
     display: flex;

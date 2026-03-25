@@ -1,16 +1,14 @@
 <script lang="ts">
 
     import { gsap } from 'gsap';
+    import { Draggable } from 'gsap/all';
+    import InertiaPlugin from 'gsap/InertiaPlugin';
     import { SplitText } from 'gsap/SplitText';
     import { TextPlugin } from 'gsap/TextPlugin';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
     import { onMount } from 'svelte';
     import Lenis from 'lenis';
     import 'lenis/dist/lenis.css'; 
-
-
-
     let tl = gsap.timeline();
 
     onMount(() => {
@@ -25,10 +23,22 @@
         }
         requestAnimationFrame(raf);
 
-        gsap.registerPlugin(SplitText,TextPlugin, ScrollTrigger);
+        gsap.registerPlugin(SplitText,TextPlugin, ScrollTrigger, Draggable);
+
+        
+
         let split = SplitText.create("#name",{
             type: "chars",
             mask: "words"
+        })
+
+        Draggable.create('#status-ctn', {
+            type: 'x,y',
+            bounds: "#main-ctn",
+            inertia: true,  
+            onClick: function () {
+                console.log('clicked');
+            },
         })
 
         tl.from(split.chars, {
@@ -92,6 +102,8 @@
     )
 
 
+        
+
         lenis.on('scroll', ScrollTrigger.update);
 
         // gsap.to("#rest-wrap", {
@@ -123,8 +135,9 @@
         let animation : gsap.core.Tween;
 
         const onEnter = () => {
+            console.log(animation)
             let char_to_change = split_char.chars[Math.floor(Math.random() * (split_char.chars.length))]
-            animation = gsap.to(char_to_change, {
+            gsap.to(char_to_change, {
                 duration: 0.5,    
                 color: color[text_id],
                 rotation: 360
@@ -132,12 +145,15 @@
 
             animation = gsap.to(word_to_anim, {
                 scale: 1.3,
-                ease: "expo"
+                ease: "power3"
             })
         }
 
         const onLeave = () => {
-            if (animation) animation.reverse();
+            console.log(animation)
+            if (animation) {
+                animation.reverse();
+            }
         }
 
         node.addEventListener('mouseenter', onEnter);
