@@ -9,6 +9,7 @@
     import { onMount } from 'svelte';
     import Lenis from 'lenis';
     import 'lenis/dist/lenis.css'; 
+
     let tl = gsap.timeline();
 
     onMount(() => {
@@ -23,8 +24,7 @@
         }
         requestAnimationFrame(raf);
 
-        gsap.registerPlugin(SplitText,TextPlugin, ScrollTrigger, Draggable);
-
+        gsap.registerPlugin(SplitText,TextPlugin, ScrollTrigger, Draggable, InertiaPlugin);
         
 
         let split = SplitText.create("#name",{
@@ -35,6 +35,7 @@
         Draggable.create('#status-ctn', {
             type: 'x,y',
             bounds: "#main-ctn",
+            trigger: "#status-flower",
             inertia: true,  
             onClick: function () {
                 console.log('clicked');
@@ -133,6 +134,11 @@
         let word_to_anim = split_char.words;
         let color = ["#E70047", "#87DADE", "#FDED74", "#016EBF"]
         let animation : gsap.core.Tween;
+        animation = gsap.to(word_to_anim, {
+                scale: 1.3,
+                ease: "power4",
+                paused: true
+            })
 
         const onEnter = () => {
             console.log(animation)
@@ -143,10 +149,8 @@
                 rotation: 360
             })
 
-            animation = gsap.to(word_to_anim, {
-                scale: 1.3,
-                ease: "power3"
-            })
+            animation.play();
+            
         }
 
         const onLeave = () => {
@@ -166,7 +170,7 @@
         const onEnter = () => {
             animation = gsap.to(hairpin_img, {
                 rotation: 360,
-                ease: 'power4.inOut',
+                ease: 'power4',
                 duration: 1 
             })  
         }
@@ -177,6 +181,27 @@
 
         node.addEventListener('mouseenter', onEnter);
         node.addEventListener('mouseleave', onLeave);
+    }
+
+    function statusCtnBehaviour(node: any){
+        // let nav_bar = document.getElementById("nav");
+        // let node_initial = node.getBoundingClientRect();
+        // node.addEventListener('mouseleave', () => {
+        //     let nav_bar_box = nav_bar?.getBoundingClientRect();
+        //     let status_ctn_box = node?.getBoundingClientRect();
+        //     console.log(nav_bar_box);
+        //     console.log(status_ctn_box)
+        //     if ((nav_bar_box && status_ctn_box) && (nav_bar_box?.top < status_ctn_box?.top)){
+        //         console.log("YES")
+        //         console.log(node_initial.top, node_initial.left)
+        //         gsap.to(node,{
+        //             x: node_initial?.top,
+        //             y: node_initial?.left
+        //         })
+        //     }
+        // })
+
+        
     }
 
 </script>
@@ -192,7 +217,7 @@
             <a class="l-logo" href="http://github.com/AkilanSS/" target="_blank"><img src="vectors/github.svg" alt=""></a>
             <a class="l-logo" id="linkedin-logo" href="http://linkedin.com/in/akilanss" target="_blank"><img src="/vectors/linkedin.svg" alt=""></a>
         </div>
-        <div id="status-ctn">
+        <div id="status-ctn" use:statusCtnBehaviour>
             <img src="vectors/flower-small.svg" id="status-flower" alt="" srcset="">
             <span id="status-ctn-head">
                 What's on Akilan's mind lately?
