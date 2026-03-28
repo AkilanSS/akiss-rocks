@@ -12,11 +12,17 @@
 
     let tl = gsap.timeline();
 
+    let status_ctn: HTMLElement;
+    let nav_ctn: HTMLElement;
+    let initial_status_ctn_pos: DOMRect;
+
     onMount(() => {
         const lenis = new Lenis({
             wheelMultiplier: 0.5,
             lerp: 0.2
         });
+
+        
 
         function raf(time: number) {
             lenis.raf(time);
@@ -40,7 +46,22 @@
             onClick: function () {
                 console.log('clicked');
             },
+            onThrowComplete: () => {
+                let curr_nav_ctn_pos = nav_ctn.getBoundingClientRect();
+                let curr_status_ctn_pos = status_ctn.getBoundingClientRect();
+                
+                if (curr_status_ctn_pos.top > curr_nav_ctn_pos.top){
+                    console.log("PEAJ")
+                    console.log(initial_status_ctn_pos.top, initial_status_ctn_pos.left)
+                    gsap.to(status_ctn, {
+                        y: 0,
+                        x: 0,
+                        overwrite: true
+                    })
+                }
+            }
         })
+
 
         tl.from(split.chars, {
             opacity: 0,
@@ -183,27 +204,13 @@
         node.addEventListener('mouseleave', onLeave);
     }
 
-    function statusCtnBehaviour(node: any){
-        // let nav_bar = document.getElementById("nav");
-        // let node_initial = node.getBoundingClientRect();
-        // node.addEventListener('mouseleave', () => {
-        //     let nav_bar_box = nav_bar?.getBoundingClientRect();
-        //     let status_ctn_box = node?.getBoundingClientRect();
-        //     console.log(nav_bar_box);
-        //     console.log(status_ctn_box)
-        //     if ((nav_bar_box && status_ctn_box) && (nav_bar_box?.top < status_ctn_box?.top)){
-        //         console.log("YES")
-        //         console.log(node_initial.top, node_initial.left)
-        //         gsap.to(node,{
-        //             x: node_initial?.top,
-        //             y: node_initial?.left
-        //         })
-        //     }
-        // })
+   
 
-        
-    }
+    onMount(() => {
+        initial_status_ctn_pos = status_ctn.getBoundingClientRect();
+    })
 
+    
 </script>
 
 <div id="main-ctn">
@@ -217,8 +224,8 @@
             <a class="l-logo" href="http://github.com/AkilanSS/" target="_blank"><img src="vectors/github.svg" alt=""></a>
             <a class="l-logo" id="linkedin-logo" href="http://linkedin.com/in/akilanss" target="_blank"><img src="/vectors/linkedin.svg" alt=""></a>
         </div>
-        <div id="status-ctn" use:statusCtnBehaviour>
-            <img src="vectors/flower-small.svg" id="status-flower" alt="" srcset="">
+        <div id="status-ctn" bind:this={status_ctn}>
+            <img src="vectors/flower-small.svg" id="status-flower" role="presentation" alt="" srcset="">
             <span id="status-ctn-head">
                 What's on Akilan's mind lately?
             </span>
@@ -239,7 +246,7 @@
         </div>
     </div>
     <div id="rest-wrap">
-        <div id="nav">
+        <div id="nav" bind:this={nav_ctn}>
         <div use:animateHairpin id="akiss-logo" style="margin-right: -40px;">
             <img src="vectors/akiss-rocks-logo-without-hairpin.svg" alt="" srcset="">
             <img src="vectors/hairpin.svg" alt="" srcset="" style="position:relative;left:-41px; top:0px;">
