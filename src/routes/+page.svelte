@@ -9,12 +9,12 @@
     import { onMount } from 'svelte';
     import Lenis from 'lenis';
     import 'lenis/dist/lenis.css'; 
+	import { flattenDiagnosticMessageText } from 'typescript';
 
     let tl = gsap.timeline();
 
     let status_ctn: HTMLElement;
     let nav_ctn: HTMLElement;
-    let initial_status_ctn_pos: DOMRect;
 
     onMount(() => {
         const lenis = new Lenis({
@@ -51,8 +51,6 @@
                 let curr_status_ctn_pos = status_ctn.getBoundingClientRect();
                 
                 if (curr_status_ctn_pos.top > curr_nav_ctn_pos.top){
-                    console.log("PEAJ")
-                    console.log(initial_status_ctn_pos.top, initial_status_ctn_pos.left)
                     gsap.to(status_ctn, {
                         y: 0,
                         x: 0,
@@ -109,23 +107,19 @@
         })
 
         gsap.fromTo(ann_split.chars, {
-            stagger: 0.2,
-            y: 2,
-            repeat: -1,
-            yoyo: true,
-            ease:  "power1.inOut"
-        }, {
-            stagger: 0.2,
-            y: -2,
-            repeat: -1,
-            yoyo: true,
-            ease:  "power1.inOut"
-        }, 
-    )
-
-
-        
-
+                stagger: 0.2,
+                y: 2,
+                repeat: -1,
+                yoyo: true,
+                ease:  "power1.inOut"
+            }, {
+                stagger: 0.2,
+                y: -2,
+                repeat: -1,
+                yoyo: true,
+                ease:  "power1.inOut"
+            }, 
+        )
         lenis.on('scroll', ScrollTrigger.update);
 
         // gsap.to("#rest-wrap", {
@@ -139,10 +133,13 @@
         //     }
         // })
 
+        
+
         return () => {
             lenis.destroy();
         };
-    }); 
+    });
+
 
     function handleHover(node: any){
         let text = node.children[0];
@@ -204,11 +201,30 @@
         node.addEventListener('mouseleave', onLeave);
     }
 
-   
+        function handleProjectCtn(node: any){
+            let project_name_ctn = node.children[0];
+            let project_info_ctn = node.children[1];
 
-    onMount(() => {
-        initial_status_ctn_pos = status_ctn.getBoundingClientRect();
-    })
+            let tl = gsap.timeline({paused: true})
+            tl.set(project_info_ctn, {display: 'flex'})
+            tl.to(project_info_ctn, {
+                    duration: 0.3,
+                    height: 'auto',
+                    ease: 'power4.inOut'
+                })
+            tl.from(project_info_ctn, {
+                opacity: 0,
+                duration: 0.3
+            },'<')
+            node.addEventListener('mouseenter', () => {
+                tl.play()
+            })
+
+            node.addEventListener('mouseleave', () => {
+                tl.reverse();
+            })
+
+        }
 
     
 </script>
@@ -265,36 +281,68 @@
     <div id="recent-project-ctn">
         <span class="ctn-head">Recent Projects</span>
         <div id="project-ctn-wrap">
-            <div class="project-ctn" id="project-id-1">
-                <span id="project-name">
+            <div class="project-ctn" id="project-id-1" use:handleProjectCtn>
+                <span class="project-name">
                     STEADY STATE VISUALLY EVOKED POTENTIALS
                 </span>
-                <div id="project-info-ctn" style="display:none">
-
+                <div class="project-info-ctn">
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
                 </div>
             </div>
-            <div class="project-ctn" id="project-id-2">
-                <span id="project-name">
-                    SHELLY - SSH OVER HTTPS
+            <div class="project-ctn"  id="project-id-1" use:handleProjectCtn>
+                <span class="project-name">
+                    STEADY STATE VISUALLY EVOKED POTENTIALS
                 </span>
-                <div id="project-info-ctn" style="display:none">
-
+                <div class="project-info-ctn">
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
                 </div>
             </div>
-            <div class="project-ctn" id="project-id-2">
-                <span id="project-name">
-                    HODGKIN-HUXLEY NEURONAL MODELLING
+            <div class="project-ctn" id="project-id-1" use:handleProjectCtn>
+                <span class="project-name">
+                    STEADY STATE VISUALLY EVOKED POTENTIALS
                 </span>
-                <div id="project-info-ctn" style="display:none">
-
+                <div class="project-info-ctn">
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
                 </div>
             </div>
-            <div class="project-ctn" id="project-id-2">
-                <span id="project-name">
-                    GIVESYNC
+            <div class="project-ctn" id="project-id-1" use:handleProjectCtn>
+                <span class="project-name">
+                    STEADY STATE VISUALLY EVOKED POTENTIALS
                 </span>
-                <div id="project-info-ctn" style="display:none">
-
+                <div class="project-info-ctn">
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
+                    <div class="info-ctn-sec">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. In eu purus eget tortor venenatis tempus vitae et erat. Praesent dolor elit, dictum vel velit non, varius malesuada nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia dui. Nullam tempor nibh mauris, egestas mollis augue hendrerit in. 
+                    </div>
                 </div>
             </div>
         </div>

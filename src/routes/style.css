@@ -298,19 +298,36 @@ body{
     #project-ctn-wrap{
         display: flex;
         flex-direction: column;
-
+        
         .project-ctn{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-name{
             padding: 15px 30px;
             border: #FFFFFF 1px solid;
+            font-weight: 600;
+            font-size: 22px;
+        }
 
-            #project-name{
-                font-weight: 600;
-                font-size: 22px;
+        .project-info-ctn{
+            background-color: var(--primary-bg-color);
+            display: none;
+            justify-content: space-between;
+            height: 0;
+            .info-ctn-sec{
+                padding: 50px;
+                width: 33%;
+                color: var(--accent-color);
+                font-size: medium;
+                font-weight: 500;
+
             }
         }
 
-        .project-ctn ~ .project-ctn{
-            border-top: 0px;
+        div + div .project-name{
+            border-top: 0px; 
         }
     }
     padding-bottom: 50px;
