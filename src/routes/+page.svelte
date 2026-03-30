@@ -236,9 +236,14 @@
                 <span id="name">Akilan</span>
                 <img id="flower" src="vectors/flower-big.svg" alt="">
             </div>
-            <span id="bio-line">I do cool stuff, occasionally</span>
-            <a class="l-logo" href="http://github.com/AkilanSS/" target="_blank"><img src="vectors/github.svg" alt=""></a>
-            <a class="l-logo" id="linkedin-logo" href="http://linkedin.com/in/akilanss" target="_blank"><img src="/vectors/linkedin.svg" alt=""></a>
+            <div id="name-desc-ctn">
+                <span id="bio-line">I do cool stuff, occasionally</span>
+                <div id="name-link-ctn">
+                    <a class="l-logo" href="http://github.com/AkilanSS/" target="_blank"><img src="vectors/github.svg" alt=""></a>
+                <a class="l-logo" id="linkedin-logo" href="http://linkedin.com/in/akilanss" target="_blank"><img src="/vectors/linkedin.svg" alt=""></a>
+                </div>
+            </div>
+            
         </div>
         <div id="status-ctn" bind:this={status_ctn}>
             <img src="vectors/flower-small.svg" id="status-flower" role="presentation" alt="" srcset="">
@@ -263,9 +268,9 @@
     </div>
     <div id="rest-wrap">
         <div id="nav" bind:this={nav_ctn}>
-        <div use:animateHairpin id="akiss-logo" style="margin-right: -40px;">
-            <img src="vectors/akiss-rocks-logo-without-hairpin.svg" alt="" srcset="">
-            <img src="vectors/hairpin.svg" alt="" srcset="" style="position:relative;left:-41px; top:0px;">
+        <div use:animateHairpin id="akiss-logo">
+            <img id="akiss-logo-img" src="vectors/akiss-rocks-logo-without-hairpin.svg" alt="" srcset="">
+            <img id="nav-hairpin-logo" src="vectors/hairpin.svg" alt="" srcset="">
         </div>
         <div id="nav-menu-wrap">
             <a href="" use:handleHover class="nav-menu-ctn" id="nav1"><span id="text-nav1">BLOG</span></a>
@@ -273,10 +278,10 @@
             <a href="" use:handleHover class="nav-menu-ctn" id="nav3"><span id="text-nav3">SANDBOX</span></a>
             <a href="" use:handleHover class="nav-menu-ctn" id="nav4"><span id="text-nav4">ALGORITHMS</span></a>
         </div>
-        <div style="margin-left: auto;"></div> <!--For pushing the logo to the rigght-->
-        <div id="kessoku-logo">
-            <img src="vectors/kessoku-band-logo.svg" alt="" srcset="">
-        </div>
+        <!--For pushing the logo to the rigght-->
+        
+        <img id="kessoku-logo" src="vectors/kessoku-band-logo.svg" alt="" srcset="">
+        
     </div>
     <div id="recent-project-ctn">
         <span class="ctn-head">Recent Projects</span>
