@@ -257,9 +257,12 @@ body{
     padding: 30px 50px;
     /* margin-top: 50px; */
     z-index: 2;
-
+    justify-content: space-between;
     display: flex;
-    gap: 80px;
+
+    #akiss-logo{
+        margin-right: -41px;
+    }
 
     #nav-hairpin-logo{
         position:relative;
