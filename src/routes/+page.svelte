@@ -9,7 +9,6 @@
     import { onMount } from 'svelte';
     import Lenis from 'lenis';
     import 'lenis/dist/lenis.css'; 
-	import { flattenDiagnosticMessageText } from 'typescript';
 
     let tl = gsap.timeline();
 
@@ -31,12 +30,6 @@
         requestAnimationFrame(raf);
 
         gsap.registerPlugin(SplitText,TextPlugin, ScrollTrigger, Draggable, InertiaPlugin);
-        
-
-        let split = SplitText.create("#name",{
-            type: "chars",
-            mask: "words"
-        })
 
         Draggable.create('#status-ctn', {
             type: 'x,y',
@@ -60,13 +53,28 @@
             }
         })
 
+        console.log("PEAK1")
+
+        gsap.to('#name-sub-ctn, #bio-line, #status-ctn', {
+            display: 'flex',
+            duration: 0.001,
+        })
+
+        console.log("PEAK2")
+        let split = SplitText.create("#name",{
+            type: "chars",
+            mask: "words"
+        })
+
+        console.log("PEAK3")
+
 
         tl.from(split.chars, {
             opacity: 0,
             x: 10,
             stagger: 0.1,
-            duration: 0.5
-        })
+            duration: 0.5,
+        },'<')
 
         tl.from("#bio-line", {
             delay: 0.5,
@@ -223,8 +231,8 @@
             node.addEventListener('mouseleave', () => {
                 tl.reverse();
             })
-
         }
+
 
     
 </script>
