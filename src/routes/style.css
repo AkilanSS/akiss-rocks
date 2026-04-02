@@ -1,5 +1,12 @@
-@import url(https://db.onlinewebfonts.com/c/74a4858c84d2494f93a076ceb57f3499?family=Foulis+Greek);
 @import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+
+@font-face {
+    font-family: "Foulis Greek";
+    src: url("/fonts/Foulis-Greek.ttf");
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+}
 
 @font-face {
     font-family: 'Cooper Hewitt';
