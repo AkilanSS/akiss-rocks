@@ -93,7 +93,7 @@
 
 
 
-#name-sub-ctn, #bio-line, #status-ctn, #name, .l-logo, #flower {
+#name-sub-ctn, #bio-line, #name, .l-logo, #flower {
     visibility: hidden; 
 }
 
@@ -204,7 +204,7 @@ body{
     max-height: fit-content;
     width: auto;
     
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
 
@@ -453,7 +453,7 @@ body{
         display: flex;
         flex-direction: column;
         background-color: var(--accent-color);
-        
+        padding: 50px;
 
         gap: 30px;
     }
