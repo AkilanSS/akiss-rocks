@@ -10,7 +10,7 @@
     import Lenis from 'lenis';
     import 'lenis/dist/lenis.css'; 
 
-    let tl = gsap.timeline();
+    
 
     let status_ctn: HTMLElement;
     let nav_ctn: HTMLElement;
@@ -53,21 +53,16 @@
             }
         })
 
-        console.log("PEAK1")
-
-        gsap.to('#name-sub-ctn, #bio-line, #status-ctn', {
-            display: 'flex',
-            duration: 0.001,
-        })
-
-        console.log("PEAK2")
         let split = SplitText.create("#name",{
             type: "chars",
             mask: "words"
         })
 
-        console.log("PEAK3")
+        let tl = gsap.timeline();
 
+        gsap.set(['#name-sub-ctn', '#bio-line', '#status-ctn', '#name', '.l-logo', '#flower'], { 
+            visibility: 'visible' 
+        });
 
         tl.from(split.chars, {
             opacity: 0,
