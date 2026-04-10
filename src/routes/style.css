@@ -101,6 +101,7 @@
 
 html{
     overflow-x: hidden;
+    scrollbar-width: none;
 }
 
 body{
@@ -120,6 +121,7 @@ body{
 }
 
 #header{
+
     padding: clamp(3rem, 6vw, 6rem);
     padding-top: 7.7vh;
     display: flex;
@@ -268,7 +270,6 @@ body{
     }
 
 }
-
 
 #nav{
     background-color: var(--accent-color);
@@ -511,7 +512,7 @@ body{
     #kural-tamil-text{
         font-weight: 500;
         line-height: 2ch;
-        font-size: clamp(2rem, 2vw, 5rem);
+        font-size: clamp(2rem, 3vw, 5rem);
     }
 
     #kural-eng-text{
