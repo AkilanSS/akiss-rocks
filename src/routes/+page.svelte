@@ -127,23 +127,23 @@
         )
         lenis.on('scroll', ScrollTrigger.update);
 
-        gsap.to("#rest-wrap", {
-            yPercent: -15,
-            ease: "none",
-            scrollTrigger : {
-                trigger: "#header",
-                start: "top top",
-                end: 'bottom top',
-                scrub: true,
-                onRefresh: () => {
-                    const wrapElement: any = document.querySelector("#rest-wrap");
-                    if (wrapElement) {
-                        const deadSpace = wrapElement.offsetHeight * 0.16;
-                        wrapElement.style.marginBottom = `-${deadSpace}px`;
-                    }
-                }
-            }
-        })
+        // gsap.to("#rest-wrap", {
+        //     yPercent: -15,
+        //     ease: "none",
+        //     scrollTrigger : {
+        //         trigger: "#header",
+        //         start: "top top",
+        //         end: 'bottom top',
+        //         scrub: true,
+        //         onRefresh: () => {
+        //             const wrapElement: any = document.querySelector("#rest-wrap");
+        //             if (wrapElement) {
+        //                 const deadSpace = wrapElement.offsetHeight * 0.15;
+        //                 wrapElement.style.marginBottom = `-${deadSpace}px`;
+        //             }
+        //         }
+        //     }
+        // })
 
         
 
