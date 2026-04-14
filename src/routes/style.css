@@ -167,6 +167,12 @@ body{
                     scale: 0.8;
                 }
             }
+
+            #about-me-link{
+                color: var(--accent-color);
+                font-family: 'Foulis Greek';
+                font-size: clamp(1.25rem, 1vw + 0.5rem, 1rem);
+            }
         }
         #bio-line{
             font-family: 'Foulis Greek';
@@ -208,7 +214,7 @@ body{
     top: 5vh;
 
     z-index: 100;
-    max-height: fit-content;
+    height: fit-content;
     width: fit-content;
 
     display: flex;

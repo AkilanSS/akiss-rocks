@@ -10,8 +10,12 @@
     import Lenis from 'lenis';
     import 'lenis/dist/lenis.css'; 
 
+    import Dialog from './about_me_dialog.svelte';
     
-
+    
+    let dialog: any;
+    let name_ctn : any;
+    let split: any;
     let status_ctn: HTMLElement;
     let nav_ctn: HTMLElement;
 
@@ -55,7 +59,7 @@
             }
         })
 
-        let split = SplitText.create("#name",{
+        split = SplitText.create("#name",{
             type: "chars",
             mask: "words"
         })
@@ -234,26 +238,39 @@
 
             node.addEventListener('mouseleave', () => {
                 tl.reverse();
-            })
+            })  
         }
+
+    function handleNameHover(node: HTMLElement){
+        node.addEventListener('mouseover', () => {
+            node.style.cursor = 'pointer';
+        })
+    }
 
 
     
 </script>
 
 <div id="main-ctn">
+    <Dialog bind:dialog/>
     <div id="header">
         <div id="name-ctn">
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
             <div id="name-sub-ctn">
-                <span id="name">Akilan</span>
+                <span id="name" >Akilan</span>
                 <img id="flower" src="vectors/flower-big.svg" alt="">
             </div>
             <div id="name-desc-ctn">
                 <span id="bio-line">I do cool stuff, occasionally</span>
                 <div id="name-link-ctn">
                     <a class="l-logo" href="http://github.com/AkilanSS/" target="_blank"><img src="vectors/github.svg" alt=""></a>
-                <a class="l-logo" id="linkedin-logo" href="http://linkedin.com/in/akilanss" target="_blank"><img src="/vectors/linkedin.svg" alt=""></a>
+                    <a class="l-logo" id="linkedin-logo" href="http://linkedin.com/in/akilanss" target="_blank"><img src="/vectors/linkedin.svg" alt=""></a>
+                    <a class="l-logo" id="about-me-link" href="" on:click={() => {dialog.showModal()}} style="z-index:1">More ⇾</a>
                 </div>
+                <!-- svelte-ignore a11y_click_events_have_key_events -->
+                <!-- svelte-ignore a11y_no_static_element_interactions -->
             </div>
             
         </div>
