@@ -121,14 +121,13 @@ body{
 }
 
 #header{
-
     padding: clamp(3rem, 6vw, 6rem);
     padding-top: 7.7vh;
     display: flex;
     justify-content: space-between;
     z-index: 0;
 
-    height: 30vh;
+    height: 15vw;
 
     position: relative;
     overflow: hidden;
@@ -213,6 +212,9 @@ body{
     position: relative;
     top: 5vh;
 
+    padding-left: 4%;
+    padding-right: 4%;
+
     z-index: 100;
     height: fit-content;
     width: fit-content;
@@ -231,7 +233,8 @@ body{
         font-family: 'Cooper Hewitt';
         font-weight: 600;
         color: var(--accent-color);
-        padding: 20px 60px;
+        padding: 20px;
+        font-size: clamp(0.75rem, 0.5vw, 1rem);
     }
 
     #recent-ann{
@@ -241,7 +244,7 @@ body{
 
     #ann-ctn{
         border-top: 1px solid var(--accent-color);
-        padding: 20px 100px;
+        padding: 20px;
         display: grid;
         grid-template-columns: auto 1fr;
         column-gap: 15px;
@@ -250,7 +253,7 @@ body{
 
     .ann{
         font-family: 'Cooper Hewitt';
-        font-size: 15px;
+        font-size: clamp(0.75rem, 0.5vw, 1rem);
         font-weight: 500;
         color: var(--accent-color);
 
