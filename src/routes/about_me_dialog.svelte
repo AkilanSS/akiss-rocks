@@ -34,7 +34,7 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        height: 200px;
+        height: 30%;
         width: 100%;
         background: #FEFEEB;
         background: linear-gradient(0deg,rgba(254, 254, 235, 1) 0%, rgba(247, 247, 247, 0) 100%);
